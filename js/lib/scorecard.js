@@ -22,6 +22,7 @@ function scorecard()
         $('#game_scorecard').append('<a class="mainMenu" href="#">Main Menu</a>');
         $('#game_scorecard').append('<a class="resetLevel" href="#">Reset Level</a>');
         $('#game_scorecard').append('<a class="nextLevel" href="#">Next Level</a>');
+        $('#game_scorecard').append('<a class="postLevel" href="#">Post Level</a>');
     }
 
     this.setParForClones = function( par ){
@@ -50,8 +51,9 @@ function scorecard()
     }
 
     this.show = function(){
+        var time = _calcTime();
         $('#game_scorecard .clones').text(_clones);
-        $('#game_scorecard .time').text(_calcTime());
+        $('#game_scorecard .time').text(time);
 
         var score = 0;
 
@@ -82,6 +84,14 @@ function scorecard()
 
             $('#game_scorecard .score').append(star);
         }
+
+        $('.postLevel').on('click', function( event ){
+            console.log("====================");
+            console.log(_clones);
+            console.log(time);
+            console.log(score);
+            console.log("====================");
+        });
 
         if ( _lastLevel )
         {
